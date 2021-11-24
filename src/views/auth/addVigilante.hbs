@@ -1,0 +1,47 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Registrar usuario</h3>
+        </div>
+        <div class="card-body">
+          <form action="/addVigilante" method="POST">
+            <div class="form-group">
+              <input type="type" name="nombre" placeholder="Digite nombre" class="form-control" autofocus>
+            </div>
+            <br>
+            <div class="form-group">
+              <input type="text" name="correo" placeholder="Digite correo" class="form-control">
+            </div>
+            <br>
+            <div class="form-group">
+              <input type="number" name="cedula" placeholder="Digite cedula" class="form-control">
+            </div>
+            <br>
+            <div class="form-group">
+              <select class="form-select" name="rol" required>
+                    <option value="vigilante">Vigilante</option>
+                    <option value="administrador">administrador</option>
+               </select>
+            </div>
+            <br>
+            <div class="form-group">
+              <input type="text" name="turno" placeholder="Digite turno" class="form-control">
+            </div>
+            <br>
+            <div class="form-group">
+              <input type="password" name="contraseña" placeholder="Digita contraseña" class="form-control">
+            </div>
+            <br>
+            <div class="form-group">
+              <button class="btn btn-success btn-block">
+                Entrar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

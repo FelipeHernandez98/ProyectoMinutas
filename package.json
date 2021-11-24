@@ -1,0 +1,32 @@
+{
+  "name": "proyectominutas",
+  "version": "1.0.0",
+  "description": "proyecto para control y gestion de minutas de vigilancia",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.5",
+    "express-mysql-session": "^2.1.7",
+    "express-session": "^1.17.2",
+    "express-validator": "^5.3.0",
+    "file-system": "^2.2.2",
+    "fs-extra": "^10.0.0",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "node-localstorage": "^2.2.1",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}
