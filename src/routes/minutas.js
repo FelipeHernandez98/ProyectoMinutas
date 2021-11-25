@@ -8,6 +8,7 @@ const moment = require('moment');
 const LocalStorage = require('node-localstorage').LocalStorage,
     localStorage = new LocalStorage('./scratch');
 const pool = require('../database');
+const handelbars = require('handlebars');
 
 
 router.get('/addMinuta', isLoggedIn, (req, res)=>{
@@ -63,6 +64,10 @@ router.get('/adminOption', isLoggedIn, (req, res)=>{
 router.get('/listVigilantes', isLoggedIn, async(req, res)=>{
     const vigilantes = await pool.query('SELECT * FROM vigilantes');
     res.render('minutas/listVigilantes', {vigilantes});
+});
+
+handelbars.registerHelper('isEqual', (a, opts) => {
+    return a == 'administrador' ? opts.fn(this) : opts.inverse(this);
 });
 
 module.exports = router;

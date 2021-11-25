@@ -75,6 +75,7 @@ Login
 .options{
     height: 100px;
     width: 30%;
+    border-radius: 10px;
     background-color: rgb(56, 56, 250);
     display: flex;
     justify-content: center;
@@ -93,4 +94,8 @@ Login
 }
 .options:hover {
     background-color: rgb(106, 106, 252);
+}
+.container-alert {
+    position: absolute;
+    top: 0;
 }
