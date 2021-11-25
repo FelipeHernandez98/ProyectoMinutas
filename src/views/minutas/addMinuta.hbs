@@ -1,28 +1,37 @@
 <script type="text/javascript" src="../../routes/users.js"></script>
 <script type="text/javascript" src="/jquery/jquery.js"></script>
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-            <div class="card ">
-                <div class="card-body">
-                    <h2>Agregar minuta</h2>
-                    <br>
-                    <form action="/minutas/addMinuta/{{user.id}}/{{user.nombre}}" method="POST" >
-                        <div class="form-group">
-                            <textarea  name="descripcion" class="form-control" placeholder="Descripcion" rows="4" cols="50"></textarea>
-                        </div>
-                        <br>
-                        <h5>Fecha de registro</h5>
-                        <div class="form-group">
-                            <input type="date" class="form-control" name="fecha" placeholder="">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <button class="btn btn-block btn-dark">
-                                Guardar
-                            </button>
-                        </div>
-                    </form>
+<div class="content-container">
+    <div class="sidebar">
+        {{>sidebar}}
+    </div>
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="card ">
+                    <div class="card-header">
+                        <h3>Agregar minuta</h3>
+                    </div>
+                    <div style="margin: 0 10px 0 10px;" class="card-body">
+
+                        <form action="/minutas/addMinuta/{{user.id}}/{{user.nombre}}" method="POST">
+                            <div class="form-group">
+                                <label> Registre la novedad </label>
+                                <textarea name="descripcion" class="form-control" placeholder="Descripcion" rows="4"
+                                    cols="50"></textarea>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                 <label> Fecha de registro </label>
+                                <input type="datetime-local" id="birthdaytime" name="fecha">
+                            </div>
+                            <br>
+                            <div class="submit-container">
+                                <button class="btn btn-primary btn-submit">
+                                    Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
