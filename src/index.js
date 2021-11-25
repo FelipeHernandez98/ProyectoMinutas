@@ -34,6 +34,7 @@ app.use(session({
     saveUninitialized: false,
     store: new MySqlStore(database)
 }))
+app.use(express.static(path.join(__dirname, './public')));
 app.use(flash());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));

@@ -32,7 +32,7 @@ router.post('/signin',(req,res,next)=>{
     res.redirect('/signin');
   }
   passport.authenticate('local.signin', {
-    successRedirect: 'minutas/listminutas',
+    successRedirect: 'minutas/listMinutas',
     failureRedirect: '/signin',
     failureFlash: true
   })(req,res,next)
