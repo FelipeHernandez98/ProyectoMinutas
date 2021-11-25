@@ -43,4 +43,7 @@ router.get('/listMinutas', isLoggedIn, async(req, res)=>{
     res.render('minutas/listMinutas', {minutas});
 });
 
+router.get('/adminOption', isLoggedIn, (req, res)=>{
+    res.render('minutas/adminOption')
+});
 module.exports = router;
