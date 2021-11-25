@@ -20,7 +20,13 @@ router.post('/addMinuta/:id/:nombre', isLoggedIn,  async(req, res)=>{
     req.check('fecha', 'La fecha es requerida').notEmpty();
     
     const {id, nombre} = req.params;
-    const {descripcion, fecha} = req.body;
+    var {descripcion, fecha} = req.body;
+
+    var fecha2;
+    fecha2 = moment(fecha);
+    fecha2 = fecha2.format('YYYY-MM-DD HH:mm:ss ');
+    fecha = fecha2;
+
     var id_vigilante;
     var nombre_vigilante;
     id_vigilante= id;
@@ -40,10 +46,23 @@ router.post('/addMinuta/:id/:nombre', isLoggedIn,  async(req, res)=>{
 
 router.get('/listMinutas', isLoggedIn, async(req, res)=>{
     const minutas = await pool.query('SELECT * FROM minuta');
+    for(i=0; i<minutas.length; i++){
+        const fecha = minutas[i].fecha;
+        const fechaNueva = moment(fecha);
+        minutas[i].fecha = fechaNueva.format('DD/MM/YYYY  hh:mm:ss A');
+        
+    }
+    
     res.render('minutas/listMinutas', {minutas});
 });
 
 router.get('/adminOption', isLoggedIn, (req, res)=>{
-    res.render('minutas/adminOption')
+    res.render('minutas/adminOption');
 });
+
+router.get('/listVigilantes', isLoggedIn, async(req, res)=>{
+    const vigilantes = await pool.query('SELECT * FROM vigilantes');
+    res.render('minutas/listVigilantes', {vigilantes});
+});
+
 module.exports = router;
