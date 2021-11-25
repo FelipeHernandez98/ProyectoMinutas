@@ -40,7 +40,7 @@ router.post('/addMinuta/:id/:nombre', isLoggedIn,  async(req, res)=>{
 
 router.get('/listMinutas', isLoggedIn, async(req, res)=>{
     const minutas = await pool.query('SELECT * FROM minuta');
-    res.render('minutas/listMinutas', { minutas});
+    res.render('minutas/listMinutas', {minutas});
 });
 
 module.exports = router;
