@@ -4,7 +4,8 @@
   "description": "proyecto para control y gestion de minutas de vigilancia",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/"
+    "dev": "cross-env NODE_ENV=development nodemon src/",
+    "start": "cross-env NODE_ENV=production node src/index.js"
   },
   "author": "",
   "license": "ISC",
