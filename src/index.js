@@ -9,6 +9,8 @@ const MySqlStore = require('express-mysql-session');
 const { database }= require('./keys');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const multer = require('multer');
+const uuid = require('uuid').v4;
 
 
 //Inicializaciones
@@ -43,6 +45,13 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(validator());
+const storage = multer.diskStorage({
+    destination: path.join(__dirname,'public/uploads'),
+    filename: (req,file,cb)=>{
+        cb(null, uuid() + path.extname(file.originalname));
+    }
+});
+app.use(multer({storage: storage}).single('image'));
 
 //Variables globales
 app.use((req, res, next)=>{

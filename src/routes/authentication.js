@@ -13,7 +13,7 @@ router.get('/addVigilante',  (req, res) => {
 });
 
 router.post('/addVigilante', passport.authenticate('local.signup', {
-  successRedirect: 'minutas/listMinutas',
+  successRedirect: 'minutas/profile',
   failureRedirect: '/addVigilante',
   failureFlash: true
 }));

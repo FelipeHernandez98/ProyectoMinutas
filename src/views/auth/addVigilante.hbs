@@ -10,7 +10,7 @@
             <h3>Registrar Vigilante</h3>
           </div>
           <div style="margin: 0 10px 0 10px;" class="card-body text-start">
-            <form action="/addVigilante" method="POST">
+            <form action="/addVigilante" method="POST" enctype="multipart/form-data">
               <div class="form-group">
                 <label> Nombre: </label>
                 <input type="type" name="nombre" placeholder="Digite nombre" class="form-control" autofocus required>
@@ -44,6 +44,39 @@
                 <input type="password" name="contraseña" placeholder="Digita contraseña" class="form-control" required>
               </div>
               <br>
+              <div class="form-group">
+                <input type="file" id="cover" class="form-control" name="image">
+                <style type="text/css">
+                  .img img {
+                    width: 372px;
+                    heigth: 200px;
+                    border-radius: 5px;
+                  }
+                </style>
+                <div class="img" id="preview"></div>
+
+              </div>
+              <script>
+                document.getElementById("cover").onchange = function (e) {
+
+                  // Se crea el objeto FileReader 
+                  let reader = new FileReader();
+
+                  // Lee el archivo y se pasa a fileReader   
+                  reader.readAsDataURL(e.target.files[0]);
+
+                  // Cuando este listo ejecuta el código interno 
+                  reader.onload = function () {
+
+                    let preview = document.getElementById('preview'),
+                      image = document.createElement('img');
+                    image.src = reader.result;
+                    preview.innerHTML = '';
+                    preview.append(image);
+
+                  };
+                }
+              </script>
               <div class="submit-container">
                 <button class="btn btn-primary btn-block">
                   Registrar

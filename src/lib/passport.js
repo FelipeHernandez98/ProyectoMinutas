@@ -3,6 +3,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const pool = require('../database');
 const helpers = require('./helpers');
 const bcrypt = require('bcryptjs')
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs-extra');
 
 passport.use('local.signin', new LocalStrategy({
     usernameField: 'cedula',
@@ -28,6 +30,8 @@ passport.use('local.signin', new LocalStrategy({
   }
   }));
 
+ 
+
 
   passport.use('local.signup', new LocalStrategy({
     usernameField: 'cedula',
@@ -35,6 +39,8 @@ passport.use('local.signin', new LocalStrategy({
     passReqToCallback: true
   }, async (req, cedula, contraseña, done) => {
   
+    
+
     const { nombre,  correo, rol, turno } = req.body;
     let newUser = {
       nombre,
@@ -42,7 +48,7 @@ passport.use('local.signin', new LocalStrategy({
       cedula,
       rol,
       turno,
-      contraseña
+      contraseña,
     };
 
     newUser.contraseña = await helpers.encryptPassword(contraseña);

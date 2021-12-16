@@ -1,3 +1,4 @@
+
 /*
 Estilos main
 */
@@ -10,9 +11,7 @@ Estilos main
 .sidebar{
     height: 100%;
 }
-/*
-Login
-*/
+
 .card-login{
     width: 30%;
     min-width: 300px;
@@ -21,9 +20,7 @@ Login
     padding: 10px;
     font-size: 20px;
 }
-.btn-submit{
-    width: 300px;
-}
+
 .submit-container{
     width: 100%;
     display: flex;
@@ -59,9 +56,6 @@ Login
     padding: 0 5px 0 5px;
 }
 
-/*
-    adminOption
-*/
 
 .container-options{
     width: 100%;

@@ -1,0 +1,43 @@
+
+<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+<div class="content-container">
+    <div class="sidebar">
+        {{>sidebar}}
+    </div>
+<div class="container p-5">
+  <div class="row">
+    
+    <div class="col-md-6 mx-auto">
+      <div class="card text-center">
+        <div class="card-body">
+          <form action="/minutas/actualizarFoto/{{user.id}}" method="post" >
+          <h2>Perfil</h2>
+          
+          <img src="{{user.profile_img}}" alt="profile_img"
+            style="width:40%; height:40%; border-radius:50%; padding:2%">
+          <h5 class="p-2">Nombres: {{ user.nombre }}</h5>
+          <h5 class="p-1">Correo: {{ user.correo}}</h5>
+          <h5 class="p-1">C.C: {{ user.cedula }}</h5>
+          <h5 class="p-1">Rol: {{ user.rol}}</h5>
+          <h5 class="p-1">turno: {{ user.turno}}</h5>
+          <h4 class="p-3">Subir o editar foto de perfil</h4>
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile04"
+                aria-describedby="inputGroupFileAddon04" name="img" required>
+              <label class="custom-file-label" for="inputGroupFile04">Buscar Foto</label>
+            </div>
+          </div>
+          <button class="btn btn-primary m-4">Subir</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style type="text/css"> 
+body{ 
+    font-family: 'Oswald', sans-serif !important;
+    overflow: auto !important;
+}
+</style> 
